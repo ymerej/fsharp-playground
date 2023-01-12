@@ -21,6 +21,8 @@ public static class Models
 			public const int Person = 0;
 
 			public const int Company = 1;
+
+			public const int Pet = 2;
 		}
 
 		[Serializable]
@@ -106,6 +108,38 @@ public static class Models
 			}
 		}
 
+		[Serializable]
+		[SpecialName]
+		[DebuggerTypeProxy(typeof(Pet_0040DebugTypeProxy))]
+		[DebuggerDisplay("{__DebugDisplay(),nq}")]
+		public class Pet : Customer
+		{
+			[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+			[CompilerGenerated]
+			[DebuggerNonUserCode]
+			internal readonly string petName;
+
+			[CompilationMapping(SourceConstructFlags.Field, 2, 0)]
+			[CompilerGenerated]
+			[DebuggerNonUserCode]
+			public string PetName
+			{
+				[CompilerGenerated]
+				[DebuggerNonUserCode]
+				get
+				{
+					return petName;
+				}
+			}
+
+			[CompilerGenerated]
+			[DebuggerNonUserCode]
+			internal Pet(string petName)
+			{
+				this.petName = petName;
+			}
+		}
+
 		[SpecialName]
 		internal class Person_0040DebugTypeProxy
 		{
@@ -167,6 +201,30 @@ public static class Models
 			}
 		}
 
+		[SpecialName]
+		internal class Pet_0040DebugTypeProxy
+		{
+			[CompilationMapping(SourceConstructFlags.Field, 2, 0)]
+			[CompilerGenerated]
+			[DebuggerNonUserCode]
+			public string PetName
+			{
+				[CompilerGenerated]
+				[DebuggerNonUserCode]
+				get
+				{
+					return _obj.petName;
+				}
+			}
+
+			[CompilerGenerated]
+			[DebuggerNonUserCode]
+			public Pet_0040DebugTypeProxy(Pet obj)
+			{
+				_obj = obj;
+			}
+		}
+
 		[CompilerGenerated]
 		[DebuggerNonUserCode]
 		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -176,7 +234,7 @@ public static class Models
 			[DebuggerNonUserCode]
 			get
 			{
-				return (this is Company) ? 1 : 0;
+				return (this is Pet) ? 2 : ((this is Company) ? 1 : 0);
 			}
 		}
 
@@ -208,6 +266,19 @@ public static class Models
 
 		[CompilerGenerated]
 		[DebuggerNonUserCode]
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
+		public bool IsPet
+		{
+			[CompilerGenerated]
+			[DebuggerNonUserCode]
+			get
+			{
+				return this is Pet;
+			}
+		}
+
+		[CompilerGenerated]
+		[DebuggerNonUserCode]
 		internal Customer()
 		{
 		}
@@ -222,6 +293,12 @@ public static class Models
 		public static Customer NewCompany(string companyName)
 		{
 			return new Company(companyName);
+		}
+
+		[CompilationMapping(SourceConstructFlags.UnionCase, 2)]
+		public static Customer NewPet(string petName)
+		{
+			return new Pet(petName);
 		}
 
 		[SpecialName]
@@ -246,31 +323,41 @@ public static class Models
 			{
 				if (obj != null)
 				{
-					int num = ((this is Company) ? 1 : 0);
-					int num2 = ((obj is Company) ? 1 : 0);
+					int num = ((this is Pet) ? 2 : ((this is Company) ? 1 : 0));
+					int num2 = ((obj is Pet) ? 2 : ((obj is Company) ? 1 : 0));
 					if (num == num2)
 					{
-						if (this is Person)
+						if (!(this is Person))
 						{
-							Person person = (Person)this;
-							Person person2 = (Person)obj;
-							IComparer genericComparer = LanguagePrimitives.GenericComparer;
-							int num3 = string.CompareOrdinal(person.firstName, person2.firstName);
-							if (num3 < 0)
+							if (this is Company)
 							{
-								return num3;
+								Company company = (Company)this;
+								Company company2 = (Company)obj;
+								IComparer genericComparer = LanguagePrimitives.GenericComparer;
+								return string.CompareOrdinal(company.companyName, company2.companyName);
 							}
-							if (num3 > 0)
+							if (this is Pet)
 							{
-								return num3;
+								Pet pet = (Pet)this;
+								Pet pet2 = (Pet)obj;
+								IComparer genericComparer2 = LanguagePrimitives.GenericComparer;
+								return string.CompareOrdinal(pet.petName, pet2.petName);
 							}
-							IComparer genericComparer2 = LanguagePrimitives.GenericComparer;
-							return string.CompareOrdinal(person.lastName, person2.lastName);
 						}
-						Company company = (Company)this;
-						Company company2 = (Company)obj;
+						Person person = (Person)this;
+						Person person2 = (Person)obj;
 						IComparer genericComparer3 = LanguagePrimitives.GenericComparer;
-						return string.CompareOrdinal(company.companyName, company2.companyName);
+						int num3 = string.CompareOrdinal(person.firstName, person2.firstName);
+						if (num3 < 0)
+						{
+							return num3;
+						}
+						if (num3 > 0)
+						{
+							return num3;
+						}
+						IComparer genericComparer4 = LanguagePrimitives.GenericComparer;
+						return string.CompareOrdinal(person.lastName, person2.lastName);
 					}
 					return num - num2;
 				}
@@ -299,29 +386,38 @@ public static class Models
 			{
 				if ((Customer)obj != null)
 				{
-					int num = ((this is Company) ? 1 : 0);
+					int num = ((this is Pet) ? 2 : ((this is Company) ? 1 : 0));
 					Customer customer2 = customer;
-					int num2 = ((customer2 is Company) ? 1 : 0);
+					int num2 = ((customer2 is Pet) ? 2 : ((customer2 is Company) ? 1 : 0));
 					if (num == num2)
 					{
-						if (this is Person)
+						if (!(this is Person))
 						{
-							Person person = (Person)this;
-							Person person2 = (Person)customer;
-							int num3 = string.CompareOrdinal(person.firstName, person2.firstName);
-							if (num3 < 0)
+							if (this is Company)
 							{
-								return num3;
+								Company company = (Company)this;
+								Company company2 = (Company)customer;
+								return string.CompareOrdinal(company.companyName, company2.companyName);
 							}
-							if (num3 > 0)
+							if (this is Pet)
 							{
-								return num3;
+								Pet pet = (Pet)this;
+								Pet pet2 = (Pet)customer;
+								return string.CompareOrdinal(pet.petName, pet2.petName);
 							}
-							return string.CompareOrdinal(person.lastName, person2.lastName);
 						}
-						Company company = (Company)this;
-						Company company2 = (Company)customer;
-						return string.CompareOrdinal(company.companyName, company2.companyName);
+						Person person = (Person)this;
+						Person person2 = (Person)customer;
+						int num3 = string.CompareOrdinal(person.firstName, person2.firstName);
+						if (num3 < 0)
+						{
+							return num3;
+						}
+						if (num3 > 0)
+						{
+							return num3;
+						}
+						return string.CompareOrdinal(person.lastName, person2.lastName);
 					}
 					return num - num2;
 				}
@@ -341,16 +437,25 @@ public static class Models
 			if (this != null)
 			{
 				int num = 0;
-				if (this is Person)
+				if (!(this is Person))
 				{
-					Person person = (Person)this;
-					num = 0;
-					num = -1640531527 + ((person.lastName?.GetHashCode() ?? 0) + ((num << 6) + (num >> 2)));
-					return -1640531527 + ((person.firstName?.GetHashCode() ?? 0) + ((num << 6) + (num >> 2)));
+					if (this is Company)
+					{
+						Company company = (Company)this;
+						num = 1;
+						return -1640531527 + ((company.companyName?.GetHashCode() ?? 0) + ((num << 6) + (num >> 2)));
+					}
+					if (this is Pet)
+					{
+						Pet pet = (Pet)this;
+						num = 2;
+						return -1640531527 + ((pet.petName?.GetHashCode() ?? 0) + ((num << 6) + (num >> 2)));
+					}
 				}
-				Company company = (Company)this;
-				num = 1;
-				return -1640531527 + ((company.companyName?.GetHashCode() ?? 0) + ((num << 6) + (num >> 2)));
+				Person person = (Person)this;
+				num = 0;
+				num = -1640531527 + ((person.lastName?.GetHashCode() ?? 0) + ((num << 6) + (num >> 2)));
+				return -1640531527 + ((person.firstName?.GetHashCode() ?? 0) + ((num << 6) + (num >> 2)));
 			}
 			return 0;
 		}
@@ -371,24 +476,33 @@ public static class Models
 				if (obj is Customer customer)
 				{
 					Customer customer2 = customer;
-					int num = ((this is Company) ? 1 : 0);
+					int num = ((this is Pet) ? 2 : ((this is Company) ? 1 : 0));
 					Customer customer3 = customer2;
-					int num2 = ((customer3 is Company) ? 1 : 0);
+					int num2 = ((customer3 is Pet) ? 2 : ((customer3 is Company) ? 1 : 0));
 					if (num == num2)
 					{
-						if (this is Person)
+						if (!(this is Person))
 						{
-							Person person = (Person)this;
-							Person person2 = (Person)customer2;
-							if (string.Equals(person.firstName, person2.firstName))
+							if (this is Company)
 							{
-								return string.Equals(person.lastName, person2.lastName);
+								Company company = (Company)this;
+								Company company2 = (Company)customer2;
+								return string.Equals(company.companyName, company2.companyName);
 							}
-							return false;
+							if (this is Pet)
+							{
+								Pet pet = (Pet)this;
+								Pet pet2 = (Pet)customer2;
+								return string.Equals(pet.petName, pet2.petName);
+							}
 						}
-						Company company = (Company)this;
-						Company company2 = (Company)customer2;
-						return string.Equals(company.companyName, company2.companyName);
+						Person person = (Person)this;
+						Person person2 = (Person)customer2;
+						if (string.Equals(person.firstName, person2.firstName))
+						{
+							return string.Equals(person.lastName, person2.lastName);
+						}
+						return false;
 					}
 					return false;
 				}
@@ -405,23 +519,32 @@ public static class Models
 			{
 				if (obj != null)
 				{
-					int num = ((this is Company) ? 1 : 0);
-					int num2 = ((obj is Company) ? 1 : 0);
+					int num = ((this is Pet) ? 2 : ((this is Company) ? 1 : 0));
+					int num2 = ((obj is Pet) ? 2 : ((obj is Company) ? 1 : 0));
 					if (num == num2)
 					{
-						if (this is Person)
+						if (!(this is Person))
 						{
-							Person person = (Person)this;
-							Person person2 = (Person)obj;
-							if (string.Equals(person.firstName, person2.firstName))
+							if (this is Company)
 							{
-								return string.Equals(person.lastName, person2.lastName);
+								Company company = (Company)this;
+								Company company2 = (Company)obj;
+								return string.Equals(company.companyName, company2.companyName);
 							}
-							return false;
+							if (this is Pet)
+							{
+								Pet pet = (Pet)this;
+								Pet pet2 = (Pet)obj;
+								return string.Equals(pet.petName, pet2.petName);
+							}
 						}
-						Company company = (Company)this;
-						Company company2 = (Company)obj;
-						return string.Equals(company.companyName, company2.companyName);
+						Person person = (Person)this;
+						Person person2 = (Person)obj;
+						if (string.Equals(person.firstName, person2.firstName))
+						{
+							return string.Equals(person.lastName, person2.lastName);
+						}
+						return false;
 					}
 					return false;
 				}
@@ -443,5 +566,5 @@ public static class Models
 	}
 
 	[CompilationMapping(SourceConstructFlags.Value)]
-	public static FSharpList<Customer> SampleCustomers => _0024Models.SampleCustomers_00407;
+	public static FSharpList<Customer> SampleCustomers => _0024Models.SampleCustomers_00408;
 }

@@ -8,7 +8,7 @@ namespace _003CStartupCode_0024PlaygroundCode_003E;
 internal static class _0024Models
 {
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)]
-	internal static readonly FSharpList<Models.Customer> SampleCustomers_00407;
+	internal static readonly FSharpList<Models.Customer> SampleCustomers_00408;
 
 	[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 	[CompilerGenerated]
@@ -26,6 +26,6 @@ internal static class _0024Models
 		Models.Customer head3 = Models.Customer.NewCompany("Acme Lumber");
 		string text = "Acme Mouse Traps";
 		string companyName = text;
-		FSharpList<Models.Customer> SampleCustomers = (SampleCustomers_00407 = FSharpList<Models.Customer>.Cons(head, FSharpList<Models.Customer>.Cons(head2, FSharpList<Models.Customer>.Cons(head3, FSharpList<Models.Customer>.Cons(Models.Customer.NewCompany(companyName), FSharpList<Models.Customer>.Empty)))));
+		FSharpList<Models.Customer> SampleCustomers = (SampleCustomers_00408 = FSharpList<Models.Customer>.Cons(head, FSharpList<Models.Customer>.Cons(head2, FSharpList<Models.Customer>.Cons(head3, FSharpList<Models.Customer>.Cons(Models.Customer.NewCompany(companyName), FSharpList<Models.Customer>.Cons(Models.Customer.NewPet("Snoopy"), FSharpList<Models.Customer>.Empty))))));
 	}
 }
