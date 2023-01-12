@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>PlaygroundCode</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>netcoreapp6.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>Preview</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="FSharpSignatureData.PlaygroundCode" />
+    <None Remove="FSharpOptimizationData.PlaygroundCode" />
+    <EmbeddedResource Include="FSharpSignatureData.PlaygroundCode" />
+    <EmbeddedResource Include="FSharpOptimizationData.PlaygroundCode" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="FSharp.Core">
+      <HintPath>c:\users\novakj\.nuget\packages\fsharp.core\7.0.0\lib\netstandard2.1\FSharp.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
