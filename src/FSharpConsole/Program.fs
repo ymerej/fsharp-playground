@@ -1,4 +1,5 @@
-﻿open PlaygroundCode.Models
+﻿open System
+open PlaygroundCode.Models
 open PlaygroundCode
 
 // For more information see https://aka.ms/fsharp-console-apps
@@ -22,3 +23,5 @@ customers
 // Example of strategy pattern
 Functions.runStrategy "Hi"
 Functions.runStrategy "Hello"
+
+Functions.runDecorator "Hello"
