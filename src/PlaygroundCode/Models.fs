@@ -1,4 +1,4 @@
-﻿module Models
+﻿module PlaygroundCode.Models
 
 type Customer =
     | Person of FirstName: string * LastName: string

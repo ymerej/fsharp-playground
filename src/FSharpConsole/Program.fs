@@ -1,4 +1,5 @@
-﻿open Models
+﻿open PlaygroundCode.Models
+open PlaygroundCode
 
 // For more information see https://aka.ms/fsharp-console-apps
 
@@ -16,3 +17,8 @@ let printCustomer (customer : Customer) =
 
 customers
 |> Seq.iter printCustomer
+
+
+// Example of strategy pattern
+Functions.runStrategy "Hi"
+Functions.runStrategy "Hello"

@@ -3,9 +3,11 @@ using System.Collections;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using _003CStartupCode_0024PlaygroundCode_003E;
+using _003CStartupCode_0024PlaygroundCode_003E._0024PlaygroundCode;
 using Microsoft.FSharp.Collections;
 using Microsoft.FSharp.Core;
+
+namespace PlaygroundCode;
 
 [CompilationMapping(SourceConstructFlags.Module)]
 public static class Models
@@ -566,5 +568,5 @@ public static class Models
 	}
 
 	[CompilationMapping(SourceConstructFlags.Value)]
-	public static FSharpList<Customer> SampleCustomers => _0024Models.SampleCustomers_00408;
+	public static FSharpList<Customer> SampleCustomers => _003CStartupCode_0024PlaygroundCode_003E._0024PlaygroundCode.Models.SampleCustomers_00408;
 }
