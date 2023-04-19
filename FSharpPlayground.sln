@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consoles", "Consoles", "{70
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PlaygroundCode", "src\PlaygroundCode\PlaygroundCode.fsproj", "{1EDE5AD4-F938-436B-A862-1D9638020AFF}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TestProject1", "TestProject1\TestProject1.fsproj", "{FEE9296F-2713-4497-8A16-EC046B6F0650}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{1EDE5AD4-F938-436B-A862-1D9638020AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EDE5AD4-F938-436B-A862-1D9638020AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EDE5AD4-F938-436B-A862-1D9638020AFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEE9296F-2713-4497-8A16-EC046B6F0650}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEE9296F-2713-4497-8A16-EC046B6F0650}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEE9296F-2713-4497-8A16-EC046B6F0650}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEE9296F-2713-4497-8A16-EC046B6F0650}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
